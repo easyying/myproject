@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
+    /**
+     * 页面请求：http://localhost:8080/hello
+     * @return
+     */
     @RequestMapping("/hello")
     public String index() {
         return "Hello World";
