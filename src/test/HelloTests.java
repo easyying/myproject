@@ -1,20 +1,27 @@
+import com.alibaba.fastjson.JSON;
 import com.example.myproject.Application;
 import com.example.myproject.controller.HelloWorldController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.net.URL;
+import java.util.List;
 
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -49,6 +56,37 @@ public class HelloTests {
                 this.base.toString() + "/hello", String.class, "");
         System.out.println(String.format("测试结果为：%s", response.getBody()));
     }
+
+
+    @Autowired
+    DataSourceProperties dataSourceProperties;
+    @Autowired
+    ApplicationContext applicationContext;
+    @Resource(name = "myDataSource")
+    private DataSource myDataSource;
+    /**
+     * 测试数据路连接成功没
+     * @throws Exception
+     */
+    @Test
+    public void contextLoads() throws Exception {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(myDataSource);
+        List<?> resultList = jdbcTemplate.queryForList("select * from userspringboot");
+        System.out.println("===>>>>>>>>>>>" + JSON.toJSONString(resultList));
+    }
+    @Test
+    public void test(){
+        System.out.println("测试数据库连接成功没："+ myDataSource.getClass());
+    }
+
+    @Autowired
+    DataSource dataSource;
+    @Test
+    public void contextLoads1() throws Exception{
+        System.out.println("获取的数据库连接为:"+ dataSource.getConnection());
+    }
+
+
 
     /*@Before
     public void setUp() throws Exception {
