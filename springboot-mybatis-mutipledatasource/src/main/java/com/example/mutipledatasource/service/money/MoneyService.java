@@ -1,4 +1,4 @@
-package com.example.mutipledatasource.db2.service;
+package com.example.mutipledatasource.service.money;
 
 import com.example.mutipledatasource.bean.Money;
 

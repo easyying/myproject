@@ -1,7 +1,7 @@
 package com.example.mutipledatasource.controller;
 
 import com.example.mutipledatasource.bean.Money;
-import com.example.mutipledatasource.db2.service.MoneyService;
+import com.example.mutipledatasource.service.money.MoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

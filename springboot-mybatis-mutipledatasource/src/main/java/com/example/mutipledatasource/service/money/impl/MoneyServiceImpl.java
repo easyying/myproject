@@ -1,9 +1,8 @@
-package com.example.mutipledatasource.db2.service.impl;
+package com.example.mutipledatasource.service.money.impl;
 
 import com.example.mutipledatasource.bean.Money;
-import com.example.mutipledatasource.db2.dao.MoneyDao;
-import com.example.mutipledatasource.db2.dao.MoneyMapper;
-import com.example.mutipledatasource.db2.service.MoneyService;
+import com.example.mutipledatasource.dao.db2mapper.MoneyMapper;
+import com.example.mutipledatasource.service.money.MoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

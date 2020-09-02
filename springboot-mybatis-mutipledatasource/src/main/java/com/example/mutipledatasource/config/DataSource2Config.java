@@ -9,13 +9,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.example.mutipledatasource.db2.dao", sqlSessionTemplateRef = "db2SqlSessionTemplate")
+@MapperScan(basePackages = {"com.example.mutipledatasource.dao.db2","com.example.mutipledatasource.dao.db2mapper"}, sqlSessionTemplateRef = "db2SqlSessionTemplate")
 public class DataSource2Config {
+    /**
+     * 创建一个数据源并注册为bean，bean名字为db2DataSource
+     */
     @Bean(name = "db2DataSource")
     @ConfigurationProperties(prefix = "spring.datasource.hikari.db2")
     public DataSource testDataSource() {
@@ -26,10 +30,13 @@ public class DataSource2Config {
     public SqlSessionFactory testSqlSessionFactory(@Qualifier("db2DataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        //bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/db2/*.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/db2money/*.xml"));
         return bean.getObject();
     }
 
+    /**
+     * 事务管理器
+     */
     @Bean(name = "db2TransactionManager")
     public DataSourceTransactionManager testTransactionManager(@Qualifier("db2DataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);

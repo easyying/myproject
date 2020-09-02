@@ -1,4 +1,4 @@
-package com.example.mutipledatasource.db2.dao;
+package com.example.mutipledatasource.dao.db2;
 
 import com.example.mutipledatasource.bean.Money;
 import org.apache.ibatis.annotations.Mapper;

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.mutipledatasource.db2.dao.MoneyMapper">
+<mapper namespace="com.example.mutipledatasource.dao.db2mapper.MoneyMapper">
     <select id="findMoneyById" resultType="com.example.mutipledatasource.bean.Money">
       SELECT * FROM moneyspringboot WHERE id = #{id}
     </select>
