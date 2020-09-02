@@ -14,6 +14,6 @@ public class MoneyController {
 
     @RequestMapping("/query")
     public Money testQuery() {
-        return moneyService.selectMoneyById(1);
+        return moneyService.selectMoneyById(2);
     }
 }
