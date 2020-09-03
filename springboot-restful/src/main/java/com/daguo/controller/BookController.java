@@ -19,15 +19,15 @@ public class BookController {
         return ResponseEntity.ok(books);
     }
 
-    @DeleteMapping("/book/{id}")
+    @DeleteMapping("/book/{id}")//http://localhost:8086/api/book/1   get也行
     public ResponseEntity deleteBookById(@PathVariable("id") int id){//@PathVariable 取url地址中的参数
         books.remove(id);
         return ResponseEntity.ok(books);
     }
 
-    @GetMapping("/book")//
+    @GetMapping("/book")// http://localhost:8086/api/book?name=曹雪芹
     public ResponseEntity getBookByName(@RequestParam("name") final String name){
-        List<Book> results = books.stream().filter(book -> book.getName().equals(name)).collect(Collectors.toList());
-        return ResponseEntity.ok(results);
+        //List<Book> results = books.stream().filter(book -> book.getName().equals(name)).collect(Collectors.toList());
+        return ResponseEntity.ok(books);
     }
 }
