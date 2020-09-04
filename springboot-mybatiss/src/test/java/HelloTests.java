@@ -1,5 +1,5 @@
 import com.alibaba.fastjson.JSON;
-import com.example.myproject.ApplicationC;
+import com.example.myproject.ApplicationMybatis;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ApplicationC.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = ApplicationMybatis.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HelloTests {
     private MockMvc mvc;
     @Autowired

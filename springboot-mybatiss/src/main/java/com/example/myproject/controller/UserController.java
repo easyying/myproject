@@ -36,7 +36,7 @@ public class UserController {
     }
 
 
-    @RequestMapping("/insert")
+    @RequestMapping("/selectAll")
     public List<User> testInsert() {
         userService.insertService();
         return userService.selectAllUser();

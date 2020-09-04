@@ -11,10 +11,12 @@ import javax.persistence.Id;
 /**
  * @author
  * 持久层框架：jpa
+ * ORM(Object Relational Mapping)框架表示对象关系映射，使用ORM框架我们不必再去创建表，
+ * 框架会自动根据当前项目中的实体类：自动创建相应的数据表
  */
 @Getter
 @Setter
-@Entity
+@Entity(name = "springboot_user_web")
 public class UserWebModel {
 
     //@Id 标注用于声明一个实体类的属性映射为数据库的主键列
