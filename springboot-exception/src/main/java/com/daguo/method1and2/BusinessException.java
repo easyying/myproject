@@ -1,4 +1,4 @@
-package com.daguo.method1;
+package com.daguo.method1and2;
 
 /**
  * 自定义异常类

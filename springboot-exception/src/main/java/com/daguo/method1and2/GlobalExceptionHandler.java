@@ -1,4 +1,4 @@
-package com.daguo.method1;
+package com.daguo.method1and2;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     RuntimeException bException  = new BusinessException("自定义异常错误1");// 因为要统一返回类型
 
     //@ExceptionHandler 处理 Controller 级别的异常
-   /* @ExceptionHandler(value = Exception.class)// 拦截所有异常, 这里只是为了演示，一般情况下一个方法特定处理一种异常
+  /*  @ExceptionHandler(value = Exception.class)// 拦截所有异常, 这里只是为了演示，一般情况下一个方法特定处理一种异常
     public ResponseEntity<ErrorResponse> exceptionHandler(Exception e){
         if(e instanceof IllegalArgumentException){
             return ResponseEntity.status(400).body(illegalArgumentResponse);
@@ -33,12 +33,12 @@ public class GlobalExceptionHandler {
     }*/
 
 
-    @ExceptionHandler(value = Exception.class)// 拦截所有异常, 这里只是为了演示，一般情况下一个方法特定处理一种异常
+  /*  @ExceptionHandler(value = Exception.class)// 拦截所有异常, 这里只是为了演示，一般情况下一个方法特定处理一种异常
     public ResponseEntity<RuntimeException> exceptionHandler1(Exception e){
         if(e instanceof BusinessException){
             return ResponseEntity.status(404).body(bException);
         }
         return null;
-    }
+    }*/
 
 }
