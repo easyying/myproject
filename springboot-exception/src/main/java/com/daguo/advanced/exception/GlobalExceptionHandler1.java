@@ -19,6 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice(assignableTypes = {Exception1Controller.class})//指定特定类抛出的异常
 @ResponseBody
 public class GlobalExceptionHandler1 {
+    /**
+     *ResourceNotFoundException异常会被哪个处理方法捕获 实则是handleResourceNotFoundException
+     * getMappedMethod()会首先找到可以匹配处理异常的所有方法信息，然后对其进行从小到大的排序，最后取最小的那一个匹配的方法(即匹配度最高的那个)。
+     */
   /*  @ExceptionHandler(value = BaseException.class)//拦截BaseException异常
     public ResponseEntity<?> handleAppException(BaseException e, HttpServletRequest request){
         ErrorReponse_Result response = new ErrorReponse_Result(e,request.getRequestURI());
