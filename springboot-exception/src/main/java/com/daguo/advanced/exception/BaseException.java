@@ -1,8 +1,6 @@
 package com.daguo.advanced.exception;
 
-import com.daguo.advanced.comp.ExceptionCodeConstant;
-import lombok.Getter;
-import lombok.Setter;
+import com.daguo.comp.ExceptionCodeConstant;
 import org.springframework.util.ObjectUtils;
 
 import java.util.HashMap;

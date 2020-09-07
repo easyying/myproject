@@ -1,4 +1,4 @@
-package com.daguo.advanced.comp;
+package com.daguo.comp;
 
 import lombok.Getter;
 import lombok.Setter;

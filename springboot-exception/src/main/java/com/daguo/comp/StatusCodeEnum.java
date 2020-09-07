@@ -1,4 +1,4 @@
-package com.daguo.advanced.comp;
+package com.daguo.comp;
 
 /**
  * 状态枚举

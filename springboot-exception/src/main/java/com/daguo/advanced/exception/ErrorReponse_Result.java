@@ -22,9 +22,9 @@ import java.util.Map;
  错误路径
  发生错误的时间戳
  */
+
 @Getter
 @Setter
-
 public class ErrorReponse_Result<T> {
 
     private int status;//success

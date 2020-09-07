@@ -19,16 +19,23 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice(assignableTypes = {Exception1Controller.class})//指定特定类抛出的异常
 @ResponseBody
 public class GlobalExceptionHandler1 {
-    @ExceptionHandler(value = BaseException.class)//拦截BaseException异常
+  /*  @ExceptionHandler(value = BaseException.class)//拦截BaseException异常
     public ResponseEntity<?> handleAppException(BaseException e, HttpServletRequest request){
         ErrorReponse_Result response = new ErrorReponse_Result(e,request.getRequestURI());
         System.out.println("enen");
         return new ResponseEntity<>(response, new HttpHeaders(), e.getError().getHttpStatus());
-    }
+    }*/
    /* @ExceptionHandler(value = ResourceNotFoundException.class)//自定义
     public ResponseEntity<ErrorReponse_Result> handleResourceNotFoundException(ResourceNotFoundException ex, HttpServletRequest request) {
         ErrorReponse_Result errorReponse = new ErrorReponse_Result(ex, request.getRequestURI());
         System.out.println("enen");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorReponse);
     }*/
+
+    @ExceptionHandler(value = BaseException.class)//拦截BaseException异常
+    public ErrorReponse_Result handleAppException2(BaseException e, HttpServletRequest request){
+        ErrorReponse_Result response = new ErrorReponse_Result(e,request.getRequestURI());
+        System.out.println("enen");
+        return response;
+    }
 }

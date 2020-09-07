@@ -1,4 +1,4 @@
-package com.daguo.advanced.comp;
+package com.daguo.comp;
 
 /**
  * 定义异常码常量 || 用枚举也行
