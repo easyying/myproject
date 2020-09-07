@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * 1. 定义过滤器MyFilter：要实现Filter接口
  * 2. 定义配置MyFilterConfig
- * 3. 在配置中注册自定义的过滤器
+ * 3. 在配置中注册自定义的过滤器（配置过滤器：包括配置过滤器的顺序）
  *    手动配置 @@Autowired private MyFilter myFilter;
  *    注解实现（还未跑通）
+ * 4. 过滤器的执行顺序可以自定义
  */
 @RestController
 @RequestMapping("/filtercontro")
