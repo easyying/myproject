@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * @author
  * 用户登录拦截器：
  * 如果用户输入已经被废弃的链接 ：
  * “ / admin / oldLogin”，它将重定向到新的 “ / admin / login”
